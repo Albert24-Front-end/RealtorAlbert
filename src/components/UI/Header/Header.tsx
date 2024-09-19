@@ -17,13 +17,13 @@ const Header = () => {
       </div>
       <div className="Header__bar">
         <div className="Header__bar-dropdown">
-          <Link to="#">main</Link>
+          <Link to="/main">main</Link>
         </div>
         <div className="Header__bar-dropdown">
-          <Link to="#">profile</Link>
+          <Link to="/profile">profile</Link>
         </div>
         <div className="Header__bar-dropdown">
-          <Link to="#">favourites</Link>
+          <Link to="/favourites">favourites</Link>
         </div>
         
       </div>

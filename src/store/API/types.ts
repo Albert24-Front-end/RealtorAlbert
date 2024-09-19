@@ -38,7 +38,7 @@ export interface IUser {
     message: string;
   }
 
-  export interface Property {
+export interface Property {
     id: string;
     price: number;
     rooms: number;
@@ -52,4 +52,22 @@ export interface IUser {
         name: string;
     }[];
     score: number;
+    externalID: string;
+}
+
+export interface IGetCardbyIdResponse {
+  id: string;
+  price: number;
+    rooms: number;
+    baths: number;
+    area: number;
+    title: string;
+    coverPhoto: {
+        url: string;
+    };
+    location: {
+        name: string;
+    }[];
+    score: number;
+    externalID: string;
 }

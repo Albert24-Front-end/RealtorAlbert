@@ -1,4 +1,3 @@
-// export const baseUrl = "https://rapidapi.com/apidojo/api/bayut"
 export const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
 export const baseUrl = "https://bayut.p.rapidapi.com/"
 

@@ -111,6 +111,29 @@ export const SCMainPage = styled.div`
     font-weight: 500;
     height: 100%;
     line-height: 24px;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.mainBar__option::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 0;
+  height: 4px;
+  background-color: white;
+  /* transition: width 0.3s ease; */
+}
+
+.mainBar__option:hover::after,
+.mainBar__option.active::after {
+  width: 100%;
+}
+
+.mainBar__option.active {
+  font-weight: bold;
+  color: #007bff; /* Цвет активного элемента */
 }
 
 .mainBar__option a {
@@ -120,7 +143,7 @@ export const SCMainPage = styled.div`
 .search-container {
     position: relative;
     width: 550px;
-    margin: 20px auto 80px;
+    margin: 40px auto 80px;
 }
 
 .search-input {
@@ -163,6 +186,13 @@ export const SCMainPage = styled.div`
     background-color: #555; /* изменение цвета кнопки при наведении */
 }
 
+.cards-wrapper {
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  list-style-type: none;
+  width: 100%;
+}
 .cards {
   padding: 16px;
 }
@@ -170,31 +200,29 @@ export const SCMainPage = styled.div`
   margin-top: 16px;
   display: grid;
   grid-gap: 1rem;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(1, minmax(0, 1fr));
   list-style-type: none;
+  width: 100%;
 }
 
+
 .loader {
+  width: fit-content;
   font-weight: bold;
-  font-family: monospace;
+  font-family: sans-serif;
   font-size: 30px;
-  display: inline-grid;
+  padding-bottom: 8px;
+  background: linear-gradient(currentColor 0 0) 0 100%/0% 3px no-repeat;
+  animation: l2 2s linear infinite;
 }
-.loader:before,
-.loader:after {
-  content:"Loading...";
-  grid-area: 1/1;
-  -webkit-mask:linear-gradient(90deg,#000 50%,#0000 0) 0 50%/2ch 100%;
-  animation: l11 1s infinite cubic-bezier(0.5,220,0.5,-220);
+.loader:before {
+  content:"Loading..."
 }
-.loader:after {
-  -webkit-mask-position:1ch 50%;
-  --s:-1;
-}
-@keyframes l11 {100%{transform: translateY(calc(var(--s,1)*0.1%));}}
+@keyframes l2 {to{background-size: 100% 3px}}
 
 /* Блок карточки недвижимости */
 .property-card {
+  max-width: 500px;
   width: 100%;
   border: 1px solid #ddd;
   border-radius: 10px;
@@ -205,29 +233,17 @@ export const SCMainPage = styled.div`
 /* Шапка карточки */
 .property-card__header {
   position: relative;
-}
-
-/* Статус */
-.property-card__status {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  background-color: #007bff;
-  color: white;
-  padding: 5px 10px;
-  border-radius: 5px;
-  font-size: 12px;
-}
-
-.property-card__status--new {
-  background-color: #007bff; /* Синий цвет для статуса "New" */
+  width: 100%;
+  height: 350px; /* Фиксированная высота для изображений */
+  overflow: hidden;
 }
 
 /* Изображение дома */
 .property-card__image {
   width: 100%;
-  height: auto;
+  height: 100%;
   border-bottom: 1px solid #ddd;
+  object-fit: cover;
 }
 
 /* Кнопка избранного с сердечком */
@@ -246,7 +262,7 @@ export const SCMainPage = styled.div`
   justify-content: center;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  
+  padding: 0; 
 }
 
 .property-card__favorite:hover {
@@ -254,37 +270,26 @@ export const SCMainPage = styled.div`
 }
 
 .property-card__favorite svg {
-  stroke: #ff0000; /* Красный цвет сердечка */
+  stroke: #ff0000;
+  display: block; /* Добавляем display: block для точного центрирования */
+  margin: 0 auto; /* Гарантируем отсутствие автоматических отступов */
 }
 
 /* Информация о недвижимости */
 .property-card__info {
   padding: 16px;
   font-family: Arial, sans-serif;
-}
-
-/* Статус: дом в продаже */
-.property-card__status {
-  display: flex;
-  align-items: center;
-  font-size: 14px;
-  color: #333;
-  margin-bottom: 5px;
-}
-
-.property-card__status-dot {
-  width: 10px;
-  height: 10px;
-  background-color: #4caf50; /* Зелёный круг для статуса */
-  border-radius: 50%;
-  display: inline-block;
-  margin-right: 5px;
+   flex-grow: 1; /* Расширяет блок с информацией для равномерного распределения */
 }
 
 /* Цена */
 .property-card__price {
   font-size: 24px;
   font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.property-card__rating{
   margin-bottom: 10px;
 }
 
@@ -299,8 +304,8 @@ export const SCMainPage = styled.div`
 
 .property-card__beds,
 .property-card__baths,
-.property-card__area,
-.property-card__lot-size {
+.property-card__area 
+{
   font-weight: bold;
 }
 

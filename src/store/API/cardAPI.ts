@@ -1,10 +1,11 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import { IGetCardbyIdResponse } from './types';
 
 // const API_URL = 'https://bayut.p.rapidapi.com/properties/list';
 const API_KEY = '7655c56f18msh8700d5eba63ab3cp1bb9e5jsn44ffb7ecf36a'; // замените на ваш API-ключ
-
-export const realEstateApi = createApi({
-    reducerPath: 'realEstateApi',
+const externalID = 4937770;
+export const cardApi = createApi({
+    reducerPath: 'cardApi',
     baseQuery: fetchBaseQuery({
         baseUrl: 'https://bayut.p.rapidapi.com',
         prepareHeaders: (headers) => {
@@ -14,19 +15,15 @@ export const realEstateApi = createApi({
         },
     }),
     endpoints: (builder) => ({
-        getProperties: builder.query({
-            query: () => ({
-                url: '/properties/list',
+        getCardbyId: builder.query<IGetCardbyIdResponse, string>({
+            query: (card_id) => ({
+                url: '/properties/detail',
                 params: {
-                    locationExternalIDs: '5002',
-                    purpose: 'for-sale',
-                    hitsPerPage: '24',
-                    page: '0',
-                    lang: 'en',
+                    externalID: card_id,  // Используем externalID вместо card_id
                 },
             }),
         }),
     }),
 });
 
-export const { useGetPropertiesQuery } = realEstateApi;
+export const { useGetCardbyIdQuery } = cardApi;

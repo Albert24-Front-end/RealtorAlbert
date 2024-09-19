@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import Paragraph from "../typography/Paragraph/Paragraph";
-import Span from "../typography/Span/Span";
 import { SignInButton } from "@clerk/clerk-react";
 
 interface RegistrationInfoProps {
@@ -20,7 +19,7 @@ const RegistrationInfo =({
      
       <Paragraph>{authWithText}</Paragraph>
       <div className="icons-wrapper">
-        <SignInButton
+        <SignInButton forceRedirectUrl={"/main"}
           children={
             <Link className="reg__link google-link" to="/">
               <img src="/public/google.svg" alt="Google" />
