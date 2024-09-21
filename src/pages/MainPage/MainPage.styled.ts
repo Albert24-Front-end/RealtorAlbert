@@ -352,4 +352,5 @@ export const SCMainPage = styled.div`
 .property-card__button:hover {
   background-color: #f0f0f0;
 }
+
 `

@@ -16,9 +16,11 @@ interface IPropertyProps {
       name: string;
   }[];
   score: number;
+  onAddFavouritesClick?: () => void;
+  isFavourite?: boolean;
 }
 
-const CardHouse = ({id, coverPhoto, price, rooms, baths, area, title, location, score}: IPropertyProps) => {
+const CardHouse = ({id, coverPhoto, price, rooms, baths, area, title, location, score, isFavourite, onAddFavouritesClick}: IPropertyProps) => {
   const { data, error, isLoading } = useGetPropertiesQuery(null);
 
   if (isLoading) return <div className="loader"></div>;
@@ -32,8 +34,8 @@ const CardHouse = ({id, coverPhoto, price, rooms, baths, area, title, location, 
         <div className="property-card" key={id}>
           <div className="property-card__header">
             <img src={coverPhoto?.url} alt="Image" className="property-card__image" />
-            <button className="property-card__favorite">
-            <Link to="/favourites"><IoHeartOutline size={24}/></Link>
+            <button className="property-card__favorite" onClick={onAddFavouritesClick}>
+            <IoHeartOutline size={24} strokeWidth={40} stroke={isFavourite ? "" : "red"} color={isFavourite ? "red" : "white"}/>
             </button>
           </div>
           <div className="vertical-line"></div>

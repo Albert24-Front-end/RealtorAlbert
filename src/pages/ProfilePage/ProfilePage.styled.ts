@@ -71,7 +71,7 @@ export const SCProfilePage = styled.div`
   border: 1px solid rgb(26, 24, 22);
   text-decoration: none;
   height: 36px;
-  padding: 0px 16px;
+  padding: 0 16px;
   font-weight: 500;
  
   background-color: rgb(26, 24, 22);
@@ -80,5 +80,39 @@ export const SCProfilePage = styled.div`
    color: rgb(255, 255, 255);
 } 
 
+.real-estate_header {
+    max-height: 250px;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    width: 100%;
+}
+
+.profile-page_wrapper {
+  margin: 16px;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  
+  background-color: #f9f9f9;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #333;
+  }
+
+  p {
+    font-size: 1.2rem;
+    margin: 10px 0;
+    color: #555;
+
+    strong {
+      color: #000;
+    }
+  }
 
 `

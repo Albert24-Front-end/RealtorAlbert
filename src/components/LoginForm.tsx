@@ -67,8 +67,8 @@ const LoginForm = () => {
   const onSubmit: SubmitHandler<LoginForm> = (data) => {
     console.log("im here");
     loginUser({ email: data.email, password: data.password });
-    localStorage.setItem("email", data.email);
-    localStorage.setItem("password", data.password);
+    // localStorage.setItem("email", data.email);
+    // localStorage.setItem("password", data.password);
   };
 
   return (

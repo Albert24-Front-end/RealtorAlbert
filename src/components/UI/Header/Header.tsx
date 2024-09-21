@@ -27,16 +27,6 @@ const Header = () => {
         </div>
         
       </div>
-      {/* <div className="Header__services">
-        <a href=""></a>
-        <div className="Header__service">
-          <a href="#">Manage rentals</a>
-        </div>
-        <a href=""></a>
-        <div className="Header__service">
-          <a href="#">Advertise</a>
-        </div>
-      </div> */}
       <div className="Header__buttons">
         {isSignedIn ? (
           ""

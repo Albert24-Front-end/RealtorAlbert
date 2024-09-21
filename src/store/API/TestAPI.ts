@@ -1,7 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
-// const API_URL = 'https://bayut.p.rapidapi.com/properties/list';
-const API_KEY = '7655c56f18msh8700d5eba63ab3cp1bb9e5jsn44ffb7ecf36a'; // замените на ваш API-ключ
+const API_KEY = '7655c56f18msh8700d5eba63ab3cp1bb9e5jsn44ffb7ecf36a'; 
 
 export const realEstateApi = createApi({
     reducerPath: 'realEstateApi',

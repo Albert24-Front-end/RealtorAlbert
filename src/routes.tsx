@@ -3,7 +3,7 @@ import { LoginPage } from "./pages/LoginPage/LoginPage";
 import { MainPage } from "./pages/MainPage/MainPage";
 import { ProfilePage } from './pages/ProfilePage/ProfilePage';
 import { CardPage } from './pages/CardPage/CardPage';
-// import { FavouritesPage } from "./pages/FavouritesPage/FavouritesPage";
+import { FavouritesPage } from "./pages/FavouritesPage/FavouritesPage";
 
 export const router = createBrowserRouter([
   {
@@ -22,9 +22,9 @@ export const router = createBrowserRouter([
     path: "/card/:id",
     element: <CardPage />,
   },
-  // {
-  //   path: "/favourites",
-  //   element: <FavouritesPage />,
-  // },
+  {
+    path: "/favourites",
+    element: <FavouritesPage />,
+  },
 
 ]);
