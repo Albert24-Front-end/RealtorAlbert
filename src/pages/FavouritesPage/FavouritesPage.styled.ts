@@ -204,9 +204,8 @@ export const SCFavouritesPage = styled.div`
   font-weight: bold;
 }
 
-.property-card_info-footer {
-  display: flex;
-  justify-content: space-between;
+.property-card__purpose, .property-card__type, .property-card__product, .property-card__category, .property-card__contacts {
+  display: none;
 }
 
 /* Адрес */

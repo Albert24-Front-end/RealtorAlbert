@@ -16,11 +16,23 @@ interface IPropertyProps {
       name: string;
   }[];
   score: number;
+  purpose?: string;
+  contactName?: string;
+  phoneNumber?: {
+    phone: number;
+    mobile: number;
+    whatsapp: number;
+  };
+  type?: string;
+  product?: string;
+  category?: {
+    name: string
+  }[];
   onAddFavouritesClick?: () => void;
   isFavourite?: boolean;
 }
 
-const CardHouse = ({id, coverPhoto, price, rooms, baths, area, title, location, score, isFavourite, onAddFavouritesClick}: IPropertyProps) => {
+const CardHouse = ({id, coverPhoto, price, rooms, baths, area, title, location, score, purpose, contactName, phoneNumber, type, product, category, isFavourite, onAddFavouritesClick}: IPropertyProps) => {
   const { data, error, isLoading } = useGetPropertiesQuery(null);
 
   if (isLoading) return <div className="loader"></div>;
@@ -42,10 +54,19 @@ const CardHouse = ({id, coverPhoto, price, rooms, baths, area, title, location, 
           <div className="property-card__info">
             <div className="property-card__price">${price}</div>
             <div className="property-card__rating">Rating: {score} out of 100</div>
+            <div className="property-card__product">Product status: {product}</div>
             <div className="property-card__details">
                 <div className="property-card__beds">&bull; {rooms} bed</div>
                 <div className="property-card__baths">&bull; {baths} bath</div>
                 <div className="property-card__area">&bull; {area} sqft</div>
+            </div>
+            <div className="property-card__purpose">Purpose: {purpose}</div>
+            <div className="property-card__type">Type: {type}</div>
+            <div className="property-card__category">Category: {category?.[0]?.name}</div>
+            
+            <div className="property-card__contacts">
+              <div className="property-card__contactName">Realtor: {contactName}</div>
+              <div className="property-card__phone">Realtor's contacts: <br />&bull; Phone: {phoneNumber?.phone || "No phone"} <br />&bull; Mobile: {phoneNumber?.mobile || "No mobile"} <br />&bull; WhatsApp: +{phoneNumber?.whatsapp || "No WhatsApp"}</div>
             </div>
             <div className="property-card__address">
               <div>{title}</div>

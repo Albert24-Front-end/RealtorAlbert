@@ -7,9 +7,9 @@ import  CardHouse  from "../../components/UI/CardHouse/CardHouse";
 
 
 export const CardPage = () => {
-  const { id } = useParams(); // Получаем id из URL
+  const { id } = useParams(); // Получаем id из URL с помощью хука из react-router-dom, что позволяет определить, какая карточка должна быть загружена
 
-  const { data, isLoading} = useGetCardbyIdQuery(id!);  // Передаем его в запрос
+  const { data, isLoading} = useGetCardbyIdQuery(id!);  // Передаем id карточки в запрос на API по получению данных конкретной карточки 
   return (
     <SCCardPage>
       <Header />
@@ -26,6 +26,12 @@ export const CardPage = () => {
                           location={data?.location}
                           score={data?.score}
                           coverPhoto={data?.coverPhoto}
+                          purpose={data?.purpose}
+                          contactName={data?.contactName}
+                          phoneNumber={data?.phoneNumber}
+                          type={data?.type}
+                          product={data?.product}
+                          category={data?.category}
                             />)}
       </section>
     </SCCardPage>

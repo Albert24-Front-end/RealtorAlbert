@@ -30,7 +30,7 @@ export const FavouritesPage = () => {
                 price={property?.price}
                 rooms={property?.rooms}
                 baths={property?.baths}
-                area={property?.area}
+                area={Math.round(property?.area)}
                 title={property?.title}
                 location={property?.location}
                 score={property?.score}

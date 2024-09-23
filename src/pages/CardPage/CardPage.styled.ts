@@ -172,6 +172,14 @@ export const SCCardPage = styled.div`
   font-size: 18px;
 }
 
+.property-card__purpose, .property-card__type, .property-card__product, .property-card__category, .property-card__contacts {
+  font-size: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
 /* Адрес */
 .property-card__address {
   font-size: 18px;

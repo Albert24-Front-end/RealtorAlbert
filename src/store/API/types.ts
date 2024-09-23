@@ -7,20 +7,6 @@ export interface IUser {
     city: string;
   }
   
-  export interface IPost {
-      main_text: string;
-      user_id: number;
-      id: number;
-      reg_date: Date;
-      user_fk: IUser;
-      photos: [
-        {
-          photo_id: number
-          photo_url: string;
-        }
-      ];
-      comments: string[];
-  }
   
   export interface IGetUserResponse {
     status: number;
@@ -53,21 +39,45 @@ export interface Property {
     }[];
     score: number;
     externalID: string;
+    purpose: string;
+  contactName: string;
+  phoneNumber: {
+    phone: number;
+    mobile: number;
+    whatsapp: number;
+  };
+  type: string;
+  product: string;
+  category: {
+    name: string
+  }[];
 }
 
 export interface IGetCardbyIdResponse {
   id: string;
   price: number;
-    rooms: number;
-    baths: number;
-    area: number;
-    title: string;
-    coverPhoto: {
+  rooms: number;
+  baths: number;
+  area: number;
+  title: string;
+  coverPhoto: {
         url: string;
-    };
-    location: {
+  };
+  location: {
         name: string;
-    }[];
-    score: number;
-    externalID: string;
+  }[];
+  score: number;
+  externalID: string;
+  purpose: string;
+  contactName: string;
+  phoneNumber: {
+    phone: number;
+    mobile: number;
+    whatsapp: number;
+  };
+  type: string;
+  product: string;
+  category: {
+    name: string
+  }[];
 }
